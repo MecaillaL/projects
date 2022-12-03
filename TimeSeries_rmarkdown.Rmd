@@ -1,0 +1,181 @@
+---
+title: "TimeSeries_Analysis of Fruit-Vege(2012-2021)"
+author: "Mecailla Lomoljo"
+date: "28 November 2022"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+## Fruit Vegetables: Retail Prices of Agricultural Commodities by Geolocation, Commodity, Year and Period
+
+
+This data is a real data from Philippine Statistics Authority Openstat website: <https://openstat.psa.gov.ph/>. In this notebook we will perform a Time series Analysis on the Fruit Vegetables: Retail Prices of Agricultural Commodities by Geolocation, Commodity, Year and Period. This data is limited to Ncr only, and a 2012-2021 based data.
+
+```{r loading packages, include=FALSE}
+
+library(tidyverse)
+library(dplyr)
+library(zoo)
+library(forecast)
+library(dlookr)
+library(TSstudio)
+library(ggplot2)
+library(readxl)
+library(lubridate)
+library(xts)
+library(Hmisc)
+library(rcompanion)
+
+```
+```{r import file}
+
+fruit_vege <- read_excel("C:/Users/Mecailla/Documents/TimeSeries/fruit_vege.xlsx")
+head(fruit_vege)
+
+```
+
+
+### Data Exploration
+
+Looking at the shape of our Data set, it contains 120 rows/observation and 15 columns/variables.
+These variables are:
+* ampalaya, sayote, upo, pipino, talong, patola, squash, tomato, and events;
+* Pandemic, Habagat, Amihan, Volcanic Eruption, El Nino, La nina
+
+And Date as our index.
+
+Now let's investigate our Data further.
+
+```{r Structure}
+
+head(fruit_vege)
+colnames(fruit_vege)
+str(fruit_vege)
+```
+I I extract month and year from Date to easily calculate Mean of every Fruit and Vegetables later.
+```{r plotting1}
+
+fruit_vege <- fruit_vege %>% mutate("Month"= format(fruit_vege$Date,"%m"), 
+                                    "Year"= format(fruit_vege$Date,"%Y"))
+
+```
+
+Now, to look plot our mean prices per year.
+
+```{r plot}
+
+mean_per_year <- fruit_vege %>% group_by(Year) %>% summarise(Ampalaya= mean(ampalaya_1kg), Sayote= mean(sayote_1kg), Upo= mean(upo_1kg), Pipino= mean(pipino_1kg), Talong= mean(talong_1kg), Patola= mean(patola_1kg), Squash= mean(squash_1kg), Tomato= mean(tomato_1kg))
+
+mean_per_year
+
+#plotting the mean
+mean_year_plot <- ts(mean_per_year, start= c(2012), end= c(2021))
+plot(mean_year_plot, main = "Mean of Fruit Vegetables per Year",
+     col= "blue", type= "b", lwd= 3)
+```
+
+I also wanted to see the plot of every fruit and vegetables through the years.
+
+```{r}
+frvg <- fruit_vege %>% select(ends_with("_1kg"))
+ts_frvg <- ts(frvg, start= c(2012, 1), end= c(2021, 12), frequency = 12)
+
+autoplot(ts_frvg, lwd = 1, alpha= 0.7)+
+  labs(y="Price", x= "Date", title= "Prices of Fruit Vegetables vs Date") + 
+  scale_y_log10()
+
+```
+
+If we check the data of our converted ts series data.
+
+
+```{r observed}
+
+start(ts_frvg)
+end(ts_frvg)
+cycle(ts_frvg)
+
+```
+ 
+##Decomposition
+ 
+Since we have 8 variables to analyze, let me just
+choose one variable for the sake of showing decomposition in R.
+
+```{r subsetting}
+ampalaya <- fruit_vege %>% select(ampalaya_1kg, pandemic:Year)
+ampalaya_1 <- fruit_vege %>% select(ampalaya_1kg)
+ts_ampalaya <- ts(ampalaya_1, start= c(2012, 1), end= c(2021, 12), frequency = 12)
+
+```
+```{r decomposing}
+decomposed_ampalaya <- decompose(ts_ampalaya, type = "multiplicative")
+autoplot(decomposed_ampalaya) + labs(main="Decomposition of Ampalaya")
+autoplot(decomposed_ampalaya$random, main= "Residuals of Ampalaya")
+plot(decomposed_ampalaya$seasonal, main= "Seasonal graph of Ampalaya")
+
+summary(ts_ampalaya)
+
+```
+
+Checking for Normality of Residuals of Ampalaya
+
+```{r}
+qqnorm(decomposed_ampalaya$random)
+qqline(decomposed_ampalaya$random)
+
+shapiro.test(decomposed_ampalaya$random)
+```
+
+We run a multiple linear regression to our Ampalaya with Events as the predictor. 
+
+```{r}
+model_a <- lm(ampalaya_1kg~factor(pandemic)+factor(habagat)+
+                factor(volcan_eruption) + factor(amihan)+ factor(Elnino) + factor(Lanina), 
+              data=ampalaya )
+
+model_b <- lm(ampalaya_1kg~factor(pandemic)+factor(habagat)+
+                factor(volcan_eruption) + factor(amihan)+ factor(Elnino), 
+              data=ampalaya )
+
+model_c <- lm(ampalaya_1kg~factor(pandemic)+factor(habagat)+
+                factor(volcan_eruption) + factor(amihan), 
+              data=ampalaya )
+
+model_d <- lm(ampalaya_1kg~factor(pandemic)+factor(habagat)+
+                factor(volcan_eruption), 
+              data=ampalaya )
+
+model_e <- lm(ampalaya_1kg~factor(pandemic)+factor(habagat), 
+              data=ampalaya )
+
+model_f <- lm(ampalaya_1kg~factor(pandemic), 
+              data=ampalaya )
+
+model_g <- lm(ampalaya_1kg~+factor(habagat)+
+                factor(volcan_eruption) + factor(Elnino), 
+              data=ampalaya )
+
+
+compareLM(model_a, model_b, model_c, model_d, model_e, model_f, model_g)
+```
+
+To check the correlation of our events to the price of Ampalaya, we run the following codes below:
+
+```{r}
+amp <- ampalaya %>% select(-c(Month, Year))
+rcorr(as.matrix(amp))
+
+```
+
+
+
+
