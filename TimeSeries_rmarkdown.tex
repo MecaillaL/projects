@@ -1,0 +1,525 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={TimeSeries\_Analysis of Fruit-Vege(2012-2021)},
+  pdfauthor={Mecailla Lomoljo},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{TimeSeries\_Analysis of Fruit-Vege(2012-2021)}
+\author{Mecailla Lomoljo}
+\date{28 November 2022}
+
+\begin{document}
+\maketitle
+
+\hypertarget{fruit-vegetables-retail-prices-of-agricultural-commodities-by-geolocation-commodity-year-and-period}{%
+\subsection{Fruit Vegetables: Retail Prices of Agricultural Commodities
+by Geolocation, Commodity, Year and
+Period}\label{fruit-vegetables-retail-prices-of-agricultural-commodities-by-geolocation-commodity-year-and-period}}
+
+This data is a real data from Philippine Statistics Authority Openstat
+website: \url{https://openstat.psa.gov.ph/}. In this notebook we will
+perform a Time series Analysis on the Fruit Vegetables: Retail Prices of
+Agricultural Commodities by Geolocation, Commodity, Year and Period.
+This data is limited to Ncr only, and a 2012-2021 based data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fruit\_vege }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/Mecailla/Documents/TimeSeries/fruit\_vege.xlsx"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(fruit\_vege)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 15
+##   Date                ampalaya~1 sayot~2 upo_1kg pipin~3 talon~4 patol~5 squas~6
+##   <dttm>                   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+## 1 2012-01-01 00:00:00       38.1    13.6    31.0    60.3    45.6    35.5    29.7
+## 2 2012-02-01 00:00:00       36.9    13.9    30.0    58.4    36.5    35.3    28.2
+## 3 2012-03-01 00:00:00       38.1    13.4    29.4    57.2    30.3    35.4    27.5
+## 4 2012-04-01 00:00:00       37.0    11.7    28.9    56.2    29.6    34.8    27.3
+## 5 2012-05-01 00:00:00       32.6    11.6    28.5    55.5    24.2    34.2    27.4
+## 6 2012-06-01 00:00:00       34.3    14.5    28.3    55.2    30.6    33.7    28.4
+## # ... with 7 more variables: tomato_1kg <dbl>, pandemic <dbl>, habagat <dbl>,
+## #   volcan_eruption <dbl>, amihan <dbl>, Elnino <dbl>, Lanina <dbl>, and
+## #   abbreviated variable names 1: ampalaya_1kg, 2: sayote_1kg, 3: pipino_1kg,
+## #   4: talong_1kg, 5: patola_1kg, 6: squash_1kg
+\end{verbatim}
+
+\hypertarget{data-exploration}{%
+\subsubsection{Data Exploration}\label{data-exploration}}
+
+Looking at the shape of our Data set, it contains 120 rows/observation
+and 15 columns/variables. These variables are: * ampalaya, sayote, upo,
+pipino, talong, patola, squash, tomato, and events; * Pandemic, Habagat,
+Amihan, Volcanic Eruption, El Nino, La nina
+
+And Date as our index.
+
+Now let's investigate our Data further.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(fruit\_vege)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 15
+##   Date                ampalaya~1 sayot~2 upo_1kg pipin~3 talon~4 patol~5 squas~6
+##   <dttm>                   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+## 1 2012-01-01 00:00:00       38.1    13.6    31.0    60.3    45.6    35.5    29.7
+## 2 2012-02-01 00:00:00       36.9    13.9    30.0    58.4    36.5    35.3    28.2
+## 3 2012-03-01 00:00:00       38.1    13.4    29.4    57.2    30.3    35.4    27.5
+## 4 2012-04-01 00:00:00       37.0    11.7    28.9    56.2    29.6    34.8    27.3
+## 5 2012-05-01 00:00:00       32.6    11.6    28.5    55.5    24.2    34.2    27.4
+## 6 2012-06-01 00:00:00       34.3    14.5    28.3    55.2    30.6    33.7    28.4
+## # ... with 7 more variables: tomato_1kg <dbl>, pandemic <dbl>, habagat <dbl>,
+## #   volcan_eruption <dbl>, amihan <dbl>, Elnino <dbl>, Lanina <dbl>, and
+## #   abbreviated variable names 1: ampalaya_1kg, 2: sayote_1kg, 3: pipino_1kg,
+## #   4: talong_1kg, 5: patola_1kg, 6: squash_1kg
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(fruit\_vege)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Date"            "ampalaya_1kg"    "sayote_1kg"      "upo_1kg"        
+##  [5] "pipino_1kg"      "talong_1kg"      "patola_1kg"      "squash_1kg"     
+##  [9] "tomato_1kg"      "pandemic"        "habagat"         "volcan_eruption"
+## [13] "amihan"          "Elnino"          "Lanina"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(fruit\_vege)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [120 x 15] (S3: tbl_df/tbl/data.frame)
+##  $ Date           : POSIXct[1:120], format: "2012-01-01" "2012-02-01" ...
+##  $ ampalaya_1kg   : num [1:120] 38.1 36.9 38.1 37 32.6 ...
+##  $ sayote_1kg     : num [1:120] 13.6 13.9 13.4 11.7 11.6 ...
+##  $ upo_1kg        : num [1:120] 31 30 29.4 28.9 28.5 ...
+##  $ pipino_1kg     : num [1:120] 60.3 58.4 57.2 56.2 55.5 ...
+##  $ talong_1kg     : num [1:120] 45.6 36.5 30.3 29.6 24.2 ...
+##  $ patola_1kg     : num [1:120] 35.5 35.3 35.4 34.8 34.2 ...
+##  $ squash_1kg     : num [1:120] 29.7 28.1 27.5 27.3 27.4 ...
+##  $ tomato_1kg     : num [1:120] 39.8 23.9 34.5 54.5 56.6 ...
+##  $ pandemic       : num [1:120] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ habagat        : num [1:120] 0 0 0 0 0 1 1 1 1 0 ...
+##  $ volcan_eruption: num [1:120] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ amihan         : num [1:120] 1 1 1 0 0 0 0 0 0 1 ...
+##  $ Elnino         : num [1:120] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Lanina         : num [1:120] 0 0 0 0 0 0 0 0 0 0 ...
+\end{verbatim}
+
+I I extract month and year from Date to easily calculate Mean of every
+Fruit and Vegetables later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fruit\_vege }\OtherTok{\textless{}{-}}\NormalTok{ fruit\_vege }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\StringTok{"Month"}\OtherTok{=} \FunctionTok{format}\NormalTok{(fruit\_vege}\SpecialCharTok{$}\NormalTok{Date,}\StringTok{"\%m"}\NormalTok{), }
+                                    \StringTok{"Year"}\OtherTok{=} \FunctionTok{format}\NormalTok{(fruit\_vege}\SpecialCharTok{$}\NormalTok{Date,}\StringTok{"\%Y"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Now, to look plot our mean prices per year.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_per\_year }\OtherTok{\textless{}{-}}\NormalTok{ fruit\_vege }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(Year) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Ampalaya=} \FunctionTok{mean}\NormalTok{(ampalaya\_1kg), }\AttributeTok{Sayote=} \FunctionTok{mean}\NormalTok{(sayote\_1kg), }\AttributeTok{Upo=} \FunctionTok{mean}\NormalTok{(upo\_1kg), }\AttributeTok{Pipino=} \FunctionTok{mean}\NormalTok{(pipino\_1kg), }\AttributeTok{Talong=} \FunctionTok{mean}\NormalTok{(talong\_1kg), }\AttributeTok{Patola=} \FunctionTok{mean}\NormalTok{(patola\_1kg), }\AttributeTok{Squash=} \FunctionTok{mean}\NormalTok{(squash\_1kg), }\AttributeTok{Tomato=} \FunctionTok{mean}\NormalTok{(tomato\_1kg))}
+
+\NormalTok{mean\_per\_year}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 9
+##    Year  Ampalaya Sayote   Upo Pipino Talong Patola Squash Tomato
+##    <chr>    <dbl>  <dbl> <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+##  1 2012      38.6   19.3  30.6   59.6   35.5   36.0   29.1   43.0
+##  2 2013      41.0   18.3  29.2   56.8   34.4   37.7   27.6   46.2
+##  3 2014      38.5   19.2  27.3   53.1   38.5   40.4   28.5   41.0
+##  4 2015      47.5   25.3  29.3   57.0   39.1   43.2   31.3   52.9
+##  5 2016      49.9   26.9  30.2   58.8   44.7   42.7   31.3   55.0
+##  6 2017      63.7   29.3  30.4   58.8   52.3   49.0   33.6   53.3
+##  7 2018      83.4   45.5  37.2   71.8   63.7   57.8   39.3   61.5
+##  8 2019      82.7   41.7  35.1   73.6   66.6   58.2   40.6   62.7
+##  9 2020      93.0   41.0  39.1   73.2   72.4   62.2   38.2   80.1
+## 10 2021      84.4   36.6  37.1   77.5   77.6   62.8   52.2   66.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#plotting the mean}
+\NormalTok{mean\_year\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(mean\_per\_year, }\AttributeTok{start=} \FunctionTok{c}\NormalTok{(}\DecValTok{2012}\NormalTok{), }\AttributeTok{end=} \FunctionTok{c}\NormalTok{(}\DecValTok{2021}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(mean\_year\_plot, }\AttributeTok{main =} \StringTok{"Mean of Fruit Vegetables per Year"}\NormalTok{,}
+     \AttributeTok{col=} \StringTok{"blue"}\NormalTok{, }\AttributeTok{type=} \StringTok{"b"}\NormalTok{, }\AttributeTok{lwd=} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TimeSeries_rmarkdown_files/figure-latex/plot-1.pdf}
+
+I also wanted to see the plot of every fruit and vegetables through the
+years.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{frvg }\OtherTok{\textless{}{-}}\NormalTok{ fruit\_vege }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\FunctionTok{ends\_with}\NormalTok{(}\StringTok{"\_1kg"}\NormalTok{))}
+\NormalTok{ts\_frvg }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(frvg, }\AttributeTok{start=} \FunctionTok{c}\NormalTok{(}\DecValTok{2012}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{end=} \FunctionTok{c}\NormalTok{(}\DecValTok{2021}\NormalTok{, }\DecValTok{12}\NormalTok{), }\AttributeTok{frequency =} \DecValTok{12}\NormalTok{)}
+
+\FunctionTok{autoplot}\NormalTok{(ts\_frvg, }\AttributeTok{lwd =} \DecValTok{1}\NormalTok{, }\AttributeTok{alpha=} \FloatTok{0.7}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y=}\StringTok{"Price"}\NormalTok{, }\AttributeTok{x=} \StringTok{"Date"}\NormalTok{, }\AttributeTok{title=} \StringTok{"Prices of Fruit Vegetables vs Date"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_y\_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TimeSeries_rmarkdown_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+If we check the data of our converted ts series data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{start}\NormalTok{(ts\_frvg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2012    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{end}\NormalTok{(ts\_frvg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2021   12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cycle}\NormalTok{(ts\_frvg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+## 2012   1   2   3   4   5   6   7   8   9  10  11  12
+## 2013   1   2   3   4   5   6   7   8   9  10  11  12
+## 2014   1   2   3   4   5   6   7   8   9  10  11  12
+## 2015   1   2   3   4   5   6   7   8   9  10  11  12
+## 2016   1   2   3   4   5   6   7   8   9  10  11  12
+## 2017   1   2   3   4   5   6   7   8   9  10  11  12
+## 2018   1   2   3   4   5   6   7   8   9  10  11  12
+## 2019   1   2   3   4   5   6   7   8   9  10  11  12
+## 2020   1   2   3   4   5   6   7   8   9  10  11  12
+## 2021   1   2   3   4   5   6   7   8   9  10  11  12
+\end{verbatim}
+
+\#\#Decomposition
+
+Since we have 8 variables to analyze, let me just choose one variable
+for the sake of showing decomposition in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ampalaya }\OtherTok{\textless{}{-}}\NormalTok{ fruit\_vege }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(ampalaya\_1kg, pandemic}\SpecialCharTok{:}\NormalTok{Year)}
+\NormalTok{ampalaya\_1 }\OtherTok{\textless{}{-}}\NormalTok{ fruit\_vege }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(ampalaya\_1kg)}
+\NormalTok{ts\_ampalaya }\OtherTok{\textless{}{-}} \FunctionTok{ts}\NormalTok{(ampalaya\_1, }\AttributeTok{start=} \FunctionTok{c}\NormalTok{(}\DecValTok{2012}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{end=} \FunctionTok{c}\NormalTok{(}\DecValTok{2021}\NormalTok{, }\DecValTok{12}\NormalTok{), }\AttributeTok{frequency =} \DecValTok{12}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{decomposed\_ampalaya }\OtherTok{\textless{}{-}} \FunctionTok{decompose}\NormalTok{(ts\_ampalaya, }\AttributeTok{type =} \StringTok{"multiplicative"}\NormalTok{)}
+\FunctionTok{autoplot}\NormalTok{(decomposed\_ampalaya) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{main=}\StringTok{"Decomposition of Ampalaya"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TimeSeries_rmarkdown_files/figure-latex/decomposing-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{autoplot}\NormalTok{(decomposed\_ampalaya}\SpecialCharTok{$}\NormalTok{random, }\AttributeTok{main=} \StringTok{"Residuals of Ampalaya"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TimeSeries_rmarkdown_files/figure-latex/decomposing-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(decomposed\_ampalaya}\SpecialCharTok{$}\NormalTok{seasonal, }\AttributeTok{main=} \StringTok{"Seasonal graph of Ampalaya"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TimeSeries_rmarkdown_files/figure-latex/decomposing-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(ts\_ampalaya)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   ampalaya_1kg   
+##  Min.   : 28.71  
+##  1st Qu.: 41.21  
+##  Median : 56.91  
+##  Mean   : 62.26  
+##  3rd Qu.: 79.38  
+##  Max.   :181.33
+\end{verbatim}
+
+Checking for Normality of Residuals of Ampalaya
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qqnorm}\NormalTok{(decomposed\_ampalaya}\SpecialCharTok{$}\NormalTok{random)}
+\FunctionTok{qqline}\NormalTok{(decomposed\_ampalaya}\SpecialCharTok{$}\NormalTok{random)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TimeSeries_rmarkdown_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{shapiro.test}\NormalTok{(decomposed\_ampalaya}\SpecialCharTok{$}\NormalTok{random)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  decomposed_ampalaya$random
+## W = 0.95874, p-value = 0.002025
+\end{verbatim}
+
+We run a multiple linear regression to our Ampalaya with Events as the
+predictor.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model\_a }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(pandemic)}\SpecialCharTok{+}\FunctionTok{factor}\NormalTok{(habagat)}\SpecialCharTok{+}
+                \FunctionTok{factor}\NormalTok{(volcan\_eruption) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(amihan)}\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(Elnino) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(Lanina), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+\NormalTok{model\_b }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(pandemic)}\SpecialCharTok{+}\FunctionTok{factor}\NormalTok{(habagat)}\SpecialCharTok{+}
+                \FunctionTok{factor}\NormalTok{(volcan\_eruption) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(amihan)}\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(Elnino), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+\NormalTok{model\_c }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(pandemic)}\SpecialCharTok{+}\FunctionTok{factor}\NormalTok{(habagat)}\SpecialCharTok{+}
+                \FunctionTok{factor}\NormalTok{(volcan\_eruption) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(amihan), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+\NormalTok{model\_d }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(pandemic)}\SpecialCharTok{+}\FunctionTok{factor}\NormalTok{(habagat)}\SpecialCharTok{+}
+                \FunctionTok{factor}\NormalTok{(volcan\_eruption), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+\NormalTok{model\_e }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(pandemic)}\SpecialCharTok{+}\FunctionTok{factor}\NormalTok{(habagat), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+\NormalTok{model\_f }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}}\FunctionTok{factor}\NormalTok{(pandemic), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+\NormalTok{model\_g }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(ampalaya\_1kg}\SpecialCharTok{\textasciitilde{}+}\FunctionTok{factor}\NormalTok{(habagat)}\SpecialCharTok{+}
+                \FunctionTok{factor}\NormalTok{(volcan\_eruption) }\SpecialCharTok{+} \FunctionTok{factor}\NormalTok{(Elnino), }
+              \AttributeTok{data=}\NormalTok{ampalaya )}
+
+
+\FunctionTok{compareLM}\NormalTok{(model\_a, model\_b, model\_c, model\_d, model\_e, model\_f, model\_g)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $Models
+##   Formula                                                                                                                         
+## 1 "ampalaya_1kg ~ factor(pandemic) + factor(habagat) + factor(volcan_eruption) + factor(amihan) + factor(Elnino) + factor(Lanina)"
+## 2 "ampalaya_1kg ~ factor(pandemic) + factor(habagat) + factor(volcan_eruption) + factor(amihan) + factor(Elnino)"                 
+## 3 "ampalaya_1kg ~ factor(pandemic) + factor(habagat) + factor(volcan_eruption) + factor(amihan)"                                  
+## 4 "ampalaya_1kg ~ factor(pandemic) + factor(habagat) + factor(volcan_eruption)"                                                   
+## 5 "ampalaya_1kg ~ factor(pandemic) + factor(habagat)"                                                                             
+## 6 "ampalaya_1kg ~ factor(pandemic)"                                                                                               
+## 7 "ampalaya_1kg ~ +factor(habagat) + factor(volcan_eruption) + factor(Elnino)"                                                    
+## 
+## $Fit.criteria
+##   Rank Df.res  AIC AICc  BIC R.squared Adj.R.sq   p.value Shapiro.W Shapiro.p
+## 1    7    113 1085 1086 1108  0.319000  0.28280 6.901e-08    0.9020 2.473e-07
+## 2    6    114 1084 1085 1103  0.316400  0.28640 2.419e-08    0.9027 2.715e-07
+## 3    5    115 1084 1085 1101  0.304100  0.27990 1.636e-08    0.9114 7.922e-07
+## 4    4    116 1088 1089 1102  0.265300  0.24630 7.836e-08    0.8985 1.650e-07
+## 5    3    117 1086 1087 1097  0.265300  0.25270 1.476e-08    0.8991 1.756e-07
+## 6    2    118 1085 1085 1094  0.259800  0.25350 2.753e-09    0.8926 8.370e-08
+## 7    4    116 1124 1125 1138  0.007109 -0.01857 8.420e-01    0.8822 2.675e-08
+\end{verbatim}
+
+To check the correlation of our events to the price of Ampalaya, we run
+the following codes below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{amp }\OtherTok{\textless{}{-}}\NormalTok{ ampalaya }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Month, Year))}
+\FunctionTok{rcorr}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(amp))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 ampalaya_1kg pandemic habagat volcan_eruption amihan Elnino
+## ampalaya_1kg            1.00     0.51   -0.06            0.04   0.17  -0.04
+## pandemic                0.51     1.00    0.03            0.06  -0.04  -0.27
+## habagat                -0.06     0.03    1.00            0.01  -0.71  -0.03
+## volcan_eruption         0.04     0.06    0.01            1.00   0.08   0.08
+## amihan                  0.17    -0.04   -0.71            0.08   1.00  -0.02
+## Elnino                 -0.04    -0.27   -0.03            0.08  -0.02   1.00
+## Lanina                  0.37     0.62   -0.06            0.16   0.11  -0.24
+##                 Lanina
+## ampalaya_1kg      0.37
+## pandemic          0.62
+## habagat          -0.06
+## volcan_eruption   0.16
+## amihan            0.11
+## Elnino           -0.24
+## Lanina            1.00
+## 
+## n= 120 
+## 
+## 
+## P
+##                 ampalaya_1kg pandemic habagat volcan_eruption amihan Elnino
+## ampalaya_1kg                 0.0000   0.5268  0.6975          0.0656 0.6348
+## pandemic        0.0000                0.7412  0.4842          0.6404 0.0031
+## habagat         0.5268       0.7412           0.8768          0.0000 0.7653
+## volcan_eruption 0.6975       0.4842   0.8768                  0.3797 0.3785
+## amihan          0.0656       0.6404   0.0000  0.3797                 0.8329
+## Elnino          0.6348       0.0031   0.7653  0.3785          0.8329       
+## Lanina          0.0000       0.0000   0.4835  0.0813          0.2145 0.0070
+##                 Lanina
+## ampalaya_1kg    0.0000
+## pandemic        0.0000
+## habagat         0.4835
+## volcan_eruption 0.0813
+## amihan          0.2145
+## Elnino          0.0070
+## Lanina
+\end{verbatim}
+
+\end{document}
